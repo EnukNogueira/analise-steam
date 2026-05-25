@@ -1,7 +1,7 @@
 # Steam: Análise e Tratamento de Dados
 
 ##  Sobre o Projeto
-Este projeto foi desenvolvido para explorar e extrair inteligência de dados do mercado de jogos da Steam. Através de um pipeline de dados, transformamos dados brutos em insights estratégicos sobre performance de mercado, comportamento de precificação e posicionamento de grandes distribuidoras (*Publishers*).
+Este projeto foi desenvolvido para explorar e extrair inteligência de dados do mercado de jogos da Steam. Através de um pipeline de dados, transformamos dados brutos em insights estratégicos sobre performance de mercado, comportamento de precificação e posicionamento de grandes distribuidoras.
 
 ##  Etapas do Desenvolvimento
 O projeto foi estruturado em duas fases principais:

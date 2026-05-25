@@ -3,14 +3,14 @@
 Esse projeto foi feito com um dataset do kaggle, ao qual estarei utilizando um da steam onde está bagunçado e o objetivo é a limpeza e analise dessdes dados. Esse bloco de notas visa anotar todos os erros com que lidei e como resolvi ao longo do tempo.
 
 ## Erro 1
-Abaixo está um exemplo:
+Estava dando erro em todo o restante do código por conta de que esqueci de colocar o %b e por conta da uma , depois do %d,%Y.
 
 ```python
 df_steam['ReleaseDate'] = pd.to_datetime(df_steam['ReleaseDate'], format='%d,%Y', errors='coerce')
 df_steam.dropna(subset=['ReleaseDate'], inplace=True)
 df_steam.info()
 ```
-Estava dando erro em todo o restante do código por conta de que esqueci de colocar o %b e por conta da uma , depois do %d,%Y. Deveria ficar assim:
+Solução:
 
 ```python
 df_steam['ReleaseDate'] = pd.to_datetime(df_steam['ReleaseDate'], format='%b %d, %Y', errors='coerce')

@@ -1,9 +1,9 @@
 # Projeto Steam Data
 
-Esse projeto foi feito com um dataset do kaggle, ao qual estarei utilizando um da steam onde está bagunçado e o objetivo é a limpeza e analise dessdes dados. Esse bloco de notas visa anotar todos os erros com que lidei e como resolvi ao longo do tempo.
+Esse projeto foi feito com um dataset do kaggle SteamGames. O objetivo é a limpeza e analise desses dados. Este bloco de notas visa anotar todos os erros com que lidei e como resolvi ao longo do tempo.
 
 ## Erro 1
-Estava dando erro em todo o restante do código por conta de que esqueci de colocar o %b e por conta da uma , depois do %d,%Y.
+Estava apresentando um erro em todo o restante do código por conta que acabei esquecendo de colocar o %b e por um espaço depois da (,)  do %d,%Y. Deveria ficar assim:
 
 ```python
 df_steam['ReleaseDate'] = pd.to_datetime(df_steam['ReleaseDate'], format='%d,%Y', errors='coerce')
@@ -17,15 +17,15 @@ df_steam['ReleaseDate'] = pd.to_datetime(df_steam['ReleaseDate'], format='%b %d,
 df_steam.dropna(subset=['ReleaseDate'], inplace=True)
 df_steam.info()
 ```
-Nota-se que no código acima que está correto agora o '%b %d, %Y' está correto fazendo o código funcionar corretamente e sem erros.
+Nota-se que no código acima não apresenta mais erros o '%b %d, %Y' está correto fazendo o código funcionar corretamente.
 
 ##Erro 2
-O código estava dando erro pois os preços tinha um $ então eu escrevi o seguinte código:
+O código estava dando erro pois os preços continham um $. Então para solucionar o problema eu escrevi o seguinte código:
 
 ```python
 df_steam['price'] = df_steam['price'].str.replace('$', '', regex=False).astype(float)
 ```
-Porem mesmo assim ainda estava dando erro. Então resolvi pesquisar como resolver e escrevi o código assim:
+Porem mesmo assim ainda estava dando erro. Então resolvi pesquisar como resolver: 
 
 ```python
 # Converte a coluna price para conseguir ser lido.

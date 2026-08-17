@@ -1,82 +1,123 @@
 # Análise de Dados: Mercado de Jogos da Steam
 
-Pipeline de dados em Python para limpeza, tratamento e análise exploratória (EDA) de um dataset bruto de jogos da Steam, com foco em padrões de precificação, performance de distribuidoras e market share.
+Projeto de análise de dados utilizando um dataset de jogos da Steam, com foco em tratamento, análise exploratória e visualização de dados.
 
 ---
 
 ## Sobre o projeto
 
-Este projeto transforma dados brutos do catálogo da Steam em inteligência de mercado. O trabalho foi dividido em duas fases distintas: primeiro a limpeza e engenharia de atributos, depois a análise exploratória com visualizações estratégicas. O resultado são insights sobre comportamento de preços, ranking de publishers e distribuição do ecossistema.
+O projeto começou como uma análise exploratória de um dataset bruto da Steam. Durante o desenvolvimento, os dados passaram por diferentes etapas de tratamento e validação para corrigir inconsistências e preparar as informações para análise.
+
+Atualmente, o projeto está sendo revisado e ampliado com novas análises e um dashboard desenvolvido no Power BI.
 
 ---
 
-## Estrutura do repositório
+## Estrutura do projeto
 
-```
+```text
 analise-steam/
 ├── SteamGames.csv                  # Dataset bruto original
-├── SteamGames_clean.csv            # Dataset curado após limpeza
-├── limpeza_e_tratamento.ipynb      # Fase 1: limpeza e feature engineering
-├── analise.ipynb                   # Fase 2: EDA e visualizações
-└── notas_de_projeto.md             # Anotações e decisões técnicas
+├── SteamGames_clean.csv            # Dataset tratado
+├── limpeza_e_tratamento.ipynb      # Limpeza e tratamento dos dados
+├── analise.ipynb                   # Análise exploratória
+├── notas_de_projeto.md             # Anotações e decisões técnicas
+└── README.md                       # Documentação do projeto
 ```
 
 ---
 
 ## Tecnologias utilizadas
 
-- **Python 3**
-- **Pandas** — manipulação, limpeza e agregação de dados
-- **Matplotlib** — visualizações estratégicas com formatação profissional
-- **Jupyter Notebook** — ambiente de desenvolvimento e documentação
+* **Python**
+* **Pandas** — tratamento e análise dos dados
+* **Matplotlib** — visualização de dados
+* **Jupyter Notebook** — análise e documentação
+* **Power BI** — criação do dashboard
 
 ---
 
-## Fases do projeto
+## Etapas do projeto
 
-### Fase 1 — Limpeza e Engenharia de Dados (`limpeza_e_tratamento.ipynb`)
+### 1. Tratamento dos dados
 
-- Tratamento de valores ausentes e registros inconsistentes no dataset bruto
-- Criação do KPI `Total_de_Vendas`, consolidando avaliações positivas e negativas em uma métrica unificada de desempenho
-- Geração do dataset curado `SteamGames_clean.csv` para uso na fase de análise
+* [x] Tratamento de valores ausentes
+* [x] Correção de inconsistências nos dados
+* [x] Tratamento da coluna de preços
+* [x] Padronização dos tipos de dados
+* [x] Remoção de colunas sem utilidade para a análise
+* [x] Criação da métrica `TotalReviews`
+* [x] Geração do dataset tratado `SteamGames_clean.csv`
 
-### Fase 2 — Análise Exploratória (`analise.ipynb`)
+### 2. Análise exploratória
 
-- **Distribuição de preços** — histograma para identificar padrões de precificação e outliers no catálogo
-- **Top 10 Publishers** — ranking dos líderes de mercado com formatação de eixos em escala dinâmica (K e M)
-- **Market Share** — gráfico de pizza com participação das principais distribuidoras no ecossistema da Steam
+* [x] Análise da distribuição de preços
+* [x] Análise de avaliações positivas e negativas
+* [x] Análise de `TotalReviews`
+* [x] Ranking de publishers
+* [x] Análise por gênero
+* [ ] Novas análises e aprofundamento dos insights
+
+### 3. Power BI
+
+* [x] Importação do dataset tratado
+* [x] Tratamento complementar dos dados
+* [x] Correção da escala dos preços
+* [ ] Criação do dashboard
+* [ ] Organização e refinamento dos visuais
+* [ ] Revisão final do dashboard
+
+### 4. Revisão da análise
+
+Após a conclusão do dashboard, o projeto será revisitado no Jupyter Notebook para aprofundar as análises e explorar novos padrões encontrados nos dados.
+
+* [ ] Revisar a análise exploratória
+* [ ] Criar novas análises
+* [ ] Explorar relações entre preço, avaliações e popularidade
+* [ ] Analisar diferenças entre gêneros
+* [ ] Analisar desempenho das publishers
+* [ ] Revisar e documentar os principais insights
+
+### 5. Documentação e publicação
+
+* [x] Atualizar o README
+* [ ] Documentar as decisões e alterações realizadas no projeto
+* [ ] Organizar os arquivos finais
+* [ ] Atualizar o projeto no GitHub
+* [ ] Publicar a versão revisada no LinkedIn
 
 ---
 
-## Técnicas de visualização aplicadas
+## Sobre a métrica `TotalReviews`
 
-- Formatação de eixos com escalas dinâmicas para volumes altos
-- Layout responsivo para nomes e categorias longas
-- Grids e paletas de cores para facilitar a leitura e comparação entre categorias
+O dataset não disponibiliza o número real de unidades vendidas pelos jogos.
 
----
+Por isso, o projeto não trata o número de avaliações como vendas. A métrica `TotalReviews` é calculada pela soma das avaliações positivas e negativas:
 
-## Como executar
-
-```bash
-# Clone o repositório
-git clone https://github.com/EnukNogueira/analise-steam.git
-cd analise-steam
-
-# Instale as dependências
-pip install pandas matplotlib jupyter
-
-# Execute os notebooks na ordem
-# 1. limpeza_e_tratamento.ipynb
-# 2. analise.ipynb
-jupyter notebook
+```python
+df_steam['TotalReviews'] = (
+    df_steam['PositiveReview'] + df_steam['NegativeReview']
+)
 ```
+
+Essa métrica é utilizada como um indicador de **popularidade e engajamento**, e não como uma estimativa oficial de vendas.
+
+---
+
+## Dashboard
+
+O projeto contará com um dashboard desenvolvido no Power BI para apresentar os principais indicadores e insights encontrados durante a análise.
+
+**Status:** Em desenvolvimento.
 
 ---
 
 ## Autor
 
-**Enuk Nogueira** — Desenvolvedor focado em Engenharia de Dados e Automação de Processos
+**Enuk Nogueira**
 
-[![LinkedIn](https://img.shields.io/badge/linkedin-%230077B5.svg?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/enuknogueira/)
-[![GitHub](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white)](https://github.com/EnukNogueira)
+Estudante de Análise e Desenvolvimento de Sistemas com foco em Dados, Python e Machine Learning.
+
+[![LinkedIn](https://img.shields.io/badge/linkedin-%230077B5.svg?style=for-the-badge\&logo=linkedin\&logoColor=white)](https://www.linkedin.com/in/enuknogueira/)
+
+[![GitHub](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge\&logo=github\&logoColor=white)](https://github.com/EnukNogueira)
+

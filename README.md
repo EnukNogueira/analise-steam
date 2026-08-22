@@ -115,7 +115,7 @@ O projeto contará com um dashboard desenvolvido no Power BI para apresentar os 
 
 **Enuk Nogueira**
 
-Estudante de Análise e Desenvolvimento de Sistemas com foco em Dados, Python e Machine Learning.
+Estudante de Big Data e Inteligência Analítica com foco em Dados, Python e Machine Learning.
 
 [![LinkedIn](https://img.shields.io/badge/linkedin-%230077B5.svg?style=for-the-badge\&logo=linkedin\&logoColor=white)](https://www.linkedin.com/in/enuknogueira/)
 
